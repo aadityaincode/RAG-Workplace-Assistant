@@ -1,0 +1,1 @@
+Project Titan: The goal of Project Titan is to develop a new customer relationship management (CRM) platform. The project is expected to be completed by the end of Q3. The tech stack includes Python, React, and a PostgreSQL database. The project lead is Alice.

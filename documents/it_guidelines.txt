@@ -1,0 +1,1 @@
+IT Guidelines: All employees must use a strong, unique password for each company service. Two-factor authentication (2FA) is mandatory for all accounts. Please contact the IT department for any technical assistance. The IT help desk is available from 9 AM to 5 PM on weekdays.
