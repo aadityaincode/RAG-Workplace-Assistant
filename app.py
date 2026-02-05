@@ -1,17 +1,27 @@
 import os
 import subprocess
-import google.genai as genai
+import google.generativeai as genai 
 from flask import Flask, request, jsonify, render_template
 import chromadb
 from sentence_transformers import SentenceTransformer
+from dotenv import load_dotenv
+
+load_dotenv()
+
 
 # --- Configuration ---
-API_KEY = os.environ.get("GOOGLE_API_KEY", "AIzaSyAsjrEu5-nJKDNHEr72F_icskuGcfjChN4")
-if API_KEY == "YOUR_API_KEY":
-    print("Warning: Using a placeholder API key. Please set the GOOGLE_API_KEY environment variable.")
+API_KEY = os.environ.get("GOOGLE_API_KEY")
+if not API_KEY:
+    raise ValueError("GOOGLE_API_KEY not found. Please set it in your .env file.")
 
-# Initialize the client with the new API
-client_genai = genai.Client(api_key=API_KEY)
+# Configure Gemini (stable SDK)
+genai.configure(api_key=API_KEY)
+
+model = genai.GenerativeModel("gemini-2.5-flash")
+
+# for m in genai.list_models():
+#     if 'generateContent' in m.supported_generation_methods:
+#         print(f"Model: {m.name}")
 
 app = Flask(__name__)
 
@@ -54,10 +64,7 @@ def generate_response(context, query):
     Answer:
     """
     try:
-        response = client_genai.models.generate_content(
-            model='gemini-1.5-pro',
-            contents=prompt
-        )
+        response = model.generate_content(prompt)
         return response.text
     except Exception as e:
         return f"Error generating response: {e}"
