@@ -17,6 +17,10 @@ A minimal RAG (Retrieval-Augmented Generation) system for querying workplace doc
 
 ## Setup Instructions
 
+### 0. Run the Script File
+- If you run this, <u>don't bother doing Steps 1-4</u>
+- This only works for Mac
+
 ### 1. Create a Virtual Environment
 ```bash
 python3.11 -m venv venv
@@ -50,24 +54,12 @@ GOOGLE_API_KEY=your_api_key_here
 ValueError: GOOGLE_API_KEY not found. Please set it in your .env file.
 ```
 
-### 5. Add Your Documents
-
-Place your `.txt` documents in the `documents/` folder. The system will automatically ingest them on startup.
-
-### 6. Run the Application
+### 5. Run the Application
 ```bash
 python app.py
 ```
 
-You should see output like:
-```
-Initializing database...
-Successfully ingested 3 documents into ChromaDB.
-Database initialized successfully.
- * Running on http://127.0.0.1:5000
-```
-
-### 7. Open in Browser
+### 6. Open in Browser
 
 Copy the link from the terminal and paste it into your browser:
 ```
@@ -82,4 +74,3 @@ Or simply navigate to: **http://localhost:5000**
 2. Click **Search** or press **Enter**
 3. View the AI-generated response on the left
 4. See the source documents on the right
-
