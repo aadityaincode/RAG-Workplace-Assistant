@@ -3,3 +3,5 @@ venv/
 
 # Environment variables
 .env
+
+chroma_db/

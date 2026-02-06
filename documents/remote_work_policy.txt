@@ -1,0 +1,5 @@
+Employees are allowed to work remotely up to three days per week.
+
+Remote work requires manager approval and must not impact team collaboration or performance.
+
+Employees must be available during core hours from 10:00 AM to 3:00 PM local time.

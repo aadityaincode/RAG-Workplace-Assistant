@@ -253,7 +253,7 @@
                 </div>
                 <div id="response" class="response-content">
                     <div class="placeholder">
-                        💬 Your answer will appear here. Try asking about vacation policies, project details, or IT guidelines!
+                        Your answer will appear here. Try asking about vacation policies, project details, or IT guidelines!
                     </div>
                 </div>
             </div>
@@ -267,7 +267,7 @@
                 </div>
                 <div id="sources">
                     <div class="placeholder">
-                        📄 Retrieved documents will appear here
+                        Retrieved documents will appear here
                     </div>
                 </div>
             </div>
@@ -283,7 +283,7 @@
             const btnText = document.getElementById('btnText');
 
             if (!queryText) {
-                responseDiv.innerHTML = '<div class="placeholder" style="color: #ef4444;">⚠️ Please enter a question</div>';
+                responseDiv.innerHTML = '<div class="placeholder" style="color: #ef4444;">Please enter a question</div>';
                 return;
             }
 
@@ -324,7 +324,7 @@
                 }
 
             } catch (error) {
-                responseDiv.innerHTML = `<div class="placeholder" style="color: #ef4444;">❌ Error: ${error.message}</div>`;
+                responseDiv.innerHTML = `<div class="placeholder" style="color: #ef4444;">Error: ${error.message}</div>`;
                 sourcesDiv.innerHTML = '<div class="placeholder">Unable to retrieve sources</div>';
             } finally {
                 searchBtn.disabled = false;

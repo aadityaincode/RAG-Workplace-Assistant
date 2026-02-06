@@ -1,4 +1,4 @@
-# RAG Workplace Assistant 🤖
+# RAG Workplace Assistant
 
 A minimal RAG (Retrieval-Augmented Generation) system for querying workplace documents using ChromaDB and Google's Gemini AI.
 
@@ -45,7 +45,7 @@ Create a `.env` file in the project root directory:
 GOOGLE_API_KEY=your_api_key_here
 ```
 
-**⚠️ Important:** If you don't set up the `.env` file, you'll get this error:
+**Important:** If you don't set up the `.env` file, you'll get this error:
 ```
 ValueError: GOOGLE_API_KEY not found. Please set it in your .env file.
 ```

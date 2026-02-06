@@ -1,0 +1,5 @@
+The Engineering Productivity Group supports internal tools used by developers and support teams.
+
+This group owns Project Titan and works closely with customer operations.
+
+The team is led by a Director of Engineering.
