@@ -5,7 +5,8 @@ import chromadb
 from sentence_transformers import SentenceTransformer
 from dotenv import load_dotenv
 
-load_dotenv()
+# Load environment variables
+load_dotenv(override=True)
 
 # --- Configuration ---
 API_KEY = os.environ.get("GOOGLE_API_KEY")
