@@ -1,0 +1,47 @@
+Base URL:
+/api/v1/
+
+Endpoints:
+
+POST /query
+
+Description:
+Query the ProjectX knowledge base.
+
+Request body:
+
+{
+  "query": "How do I deploy ProjectX?",
+  "top_k": 5
+}
+
+Response:
+
+{
+  "answer": "Deployment instructions are...",
+  "sources": [
+    "Deployment_Guide.txt",
+    "IT_Security_Guidelines.txt"
+  ]
+}
+
+---
+
+POST /ingest
+
+Description:
+Ingest new documents into the system.
+
+Requires admin privileges.
+
+---
+
+GET /health
+
+Returns system health status.
+
+Response:
+
+{
+  "status": "healthy"
+}

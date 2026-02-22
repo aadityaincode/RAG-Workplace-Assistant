@@ -1,0 +1,14 @@
+Meeting Notes
+Date: Nov 12, 2025
+
+Discussion:
+
+- Performance improvements needed
+- Query latency currently averages 2.1 seconds
+- Goal is under 1 second
+
+Action items:
+
+- Optimize vector search
+- Improve chunking strategy
+- Investigate caching

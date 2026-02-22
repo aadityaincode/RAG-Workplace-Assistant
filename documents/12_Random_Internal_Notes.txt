@@ -1,0 +1,11 @@
+Internal Notes
+
+- Consider migrating from FAISS to managed vector DB
+- Evaluate Pinecone and Weaviate
+
+- Embedding model currently text-embedding-3-large
+
+- Default chunk size is 500 characters
+
+- Future improvement:
+Add document tagging and filtering

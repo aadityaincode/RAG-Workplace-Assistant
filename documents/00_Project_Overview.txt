@@ -1,0 +1,38 @@
+Project Name: ProjectX
+Version: 1.3.2
+Status: Active Development
+Owner: Core Systems Team
+
+Description:
+ProjectX is an internal document intelligence platform designed to allow employees to query company knowledge using natural language.
+
+The system ingests internal documents, processes them, and allows semantic retrieval using embeddings and vector search.
+
+Primary goals:
+- Improve internal knowledge accessibility
+- Reduce time spent searching documentation
+- Provide AI-assisted answers using company data
+
+Primary users:
+- Engineers
+- Customer support staff
+- Internal operations team
+
+Core components:
+- Document ingestion pipeline
+- Vector database
+- Query processing API
+- Frontend interface
+
+Technologies used:
+- Python
+- FastAPI
+- PostgreSQL
+- FAISS vector database
+- Docker
+- Kubernetes
+
+Environment URLs:
+Dev: https://dev.projectx.internal
+Staging: https://staging.projectx.internal
+Prod: https://projectx.internal

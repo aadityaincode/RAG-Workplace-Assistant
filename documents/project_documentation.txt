@@ -1,5 +1,0 @@
-Project Titan is an internal initiative focused on building AI-powered tools for customer support teams.
-
-The goal of Project Titan is to reduce response time and improve customer satisfaction through intelligent automation.
-
-Project Titan is led by the Engineering Productivity Group and began in March 2025.

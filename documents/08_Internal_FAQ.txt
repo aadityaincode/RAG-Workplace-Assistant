@@ -1,0 +1,13 @@
+FAQ
+
+Q: Who can access ProjectX?
+A: All employees with company accounts.
+
+Q: Can I upload documents?
+A: Yes, if you have ingestion permissions.
+
+Q: Are queries logged?
+A: Yes, for auditing and security.
+
+Q: Is customer data allowed?
+A: Only with proper authorization.
