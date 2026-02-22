@@ -95,14 +95,6 @@ python ingest.py
 
 This will process all .txt files (including subfolders) and update the ChromaDB vector database.
 
-If you want to reset the database, run:
-
-```bash
-./reset_chromadb.sh
-```
-
-Then re-run `python ingest.py`.
-
 ## Running the Application
 
 Start the Flask app:
@@ -128,9 +120,4 @@ http://localhost:5000
 3. View the AI-generated response on the left
 4. See the source documents on the right
 
-## Testing
-
-You can add and run tests in `test.py` to check API endpoints, ingestion, search, and error handling.
-
 ---
-**Note:** All document files must be plain text (.txt) with no markdown formatting for best results.
