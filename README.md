@@ -95,16 +95,17 @@ python ingest.py
 
 This will process all .txt files (including subfolders) and update the ChromaDB vector database.
 
-## Running the Application
+## Running the Application (Flask & Streamlit)
+
+You can run the app using either Flask or Streamlit:
+
+### Option 1: Flask (Classic UI)
 
 Start the Flask app:
-
 ```bash
 python app.py
 ```
-
 Open your browser and go to:
-
 ```
 http://127.0.0.1:5000
 ```
@@ -112,6 +113,35 @@ or
 ```
 http://localhost:5000
 ```
+
+### Option 2: Streamlit (Modern UI)
+
+Start the Streamlit app:
+```bash
+streamlit run streamlit_app.py
+```
+Open your browser and go to the URL shown in the terminal (usually http://localhost:8501).
+
+#### Accessing Streamlit Remotely with ngrok (Google Colab or Remote)
+
+If you're running Streamlit in Google Colab or want to share your app remotely:
+
+1. Install pyngrok:
+   ```bash
+   pip install pyngrok
+   ```
+2. Start the Streamlit app (as above).
+3. In a Python shell or notebook, run:
+   ```python
+   from pyngrok import ngrok
+   ngrok.set_auth_token('YOUR_NGROK_AUTH_TOKEN')  # Only needed the first time
+   public_url = ngrok.connect(8501)
+   print(f"ngrok tunnel is live at: {public_url}")
+   ```
+4. Share the public ngrok URL to access your Streamlit app from anywhere.
+
+- For Google Colab, see Colab_Setup_Guide.md for detailed step-by-step instructions.
+- Make sure to create a free ngrok account and get your auth token from https://ngrok.com/
 
 ## Usage
 
