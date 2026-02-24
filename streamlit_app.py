@@ -2,7 +2,6 @@ import os
 import streamlit as st
 import chromadb
 from sentence_transformers import SentenceTransformer
-from dotenv import load_dotenv
 import google.generativeai as genai
 
 # --- Page config (must be first Streamlit call) ---
@@ -11,11 +10,17 @@ st.set_page_config(
     layout="wide"
 )
 
-# --- Load environment variables ---
-load_dotenv(override=True)
-API_KEY = os.environ.get("GOOGLE_API_KEY")
+# --- Load Gemini API key from Colab secrets or environment variable ---
+API_KEY = None
+try:
+    from google.colab import userdata
+    API_KEY = userdata.get('GOOGLE_API_KEY')
+except Exception:
+    pass
 if not API_KEY:
-    st.error("GOOGLE_API_KEY not found. Please set it in your .env file.")
+    API_KEY = os.environ.get("GOOGLE_API_KEY")
+if not API_KEY:
+    st.error("GOOGLE_API_KEY not found. Please add it as a Colab secret or set it in your environment.")
     st.stop()
 
 # --- Configure Gemini ---
@@ -43,19 +48,7 @@ def initialize_database():
 # --- Generate AI response ---
 def generate_response(context, query):
     docs_text = "\n".join(f"- {doc}" for doc in context)
-    prompt = f"""You are a helpful workplace assistant. Answer the question based ONLY on the provided documents.
-
-Context Documents:
-{docs_text}
-
-Question: {query}
-
-Instructions:
-- If the answer is not in the documents, say "I don't have enough information to answer that."
-- Be concise and accurate
-- Use a professional but friendly tone
-
-Answer:"""
+    prompt = f"""You are a helpful workplace assistant. Answer the question based ONLY on the provided documents.\n\nContext Documents:\n{docs_text}\n\nQuestion: {query}\n\nInstructions:\n- If the answer is not in the documents, say "I don't have enough information to answer that.\"\n- Be concise and accurate\n- Use a professional but friendly tone\n\nAnswer:"""
     response = model.generate_content(prompt)
     return response.text
 
