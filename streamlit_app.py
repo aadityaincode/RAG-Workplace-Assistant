@@ -3,6 +3,8 @@ import streamlit as st
 import chromadb
 from sentence_transformers import SentenceTransformer
 import google.generativeai as genai
+from dotenv import load_dotenv
+
 
 # --- Page config (must be first Streamlit call) ---
 st.set_page_config(
@@ -10,17 +12,25 @@ st.set_page_config(
     layout="wide"
 )
 
-# --- Load Gemini API key from Colab secrets or environment variable ---
+# --- Load environment variables ---
+# --- Load Gemini API key: try Colab secrets, then .env/environment variable ---
 API_KEY = None
 try:
     from google.colab import userdata
     API_KEY = userdata.get('GOOGLE_API_KEY')
 except Exception:
     pass
+
 if not API_KEY:
+    try:
+        from dotenv import load_dotenv
+        load_dotenv(override=True)
+    except ImportError:
+        pass
     API_KEY = os.environ.get("GOOGLE_API_KEY")
+
 if not API_KEY:
-    st.error("GOOGLE_API_KEY not found. Please add it as a Colab secret or set it in your environment.")
+    st.error("GOOGLE_API_KEY not found. Please add it as a Colab secret, or create a .env file in the project root with GOOGLE_API_KEY=your_key_here, or set it as an environment variable.")
     st.stop()
 
 # --- Configure Gemini ---
