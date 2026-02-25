@@ -1,38 +1,44 @@
-Project Name: ProjectX
-Version: 1.3.2
-Status: Active Development
-Owner: Core Systems Team
+Project Name: Nexus Internal Knowledge Base
+Version: 2.1.0
+Status: Active
+Owner: Digital Operations Team
 
-Description:
-ProjectX is an internal document intelligence platform designed to allow employees to query company knowledge using natural language.
+OVERVIEW
+Nexus is the internal knowledge platform for Arrowood & Partners, a mid-sized professional services firm with offices in Austin, Chicago, and Toronto. It allows employees to search company documents, policies, and guidelines using plain English questions instead of digging through shared drives.
+The system was introduced in Q1 2025 after a company-wide survey found that employees were spending an average of 90 minutes per day trying to locate internal information. Nexus reduced that to under 15 minutes within the first quarter of rollout.
 
-The system ingests internal documents, processes them, and allows semantic retrieval using embeddings and vector search.
+WHO IT'S FOR
+Nexus is available to all full-time and part-time employees. It is particularly used by:
+- New hires during onboarding, who need to quickly get up to speed on company policies
+- Operations staff handling day-to-day HR and admin questions
+- Project managers looking for process documentation
+- Client services teams referencing internal guidelines
 
-Primary goals:
-- Improve internal knowledge accessibility
-- Reduce time spent searching documentation
-- Provide AI-assisted answers using company data
+WHAT YOU CAN ASK
+You can ask Nexus questions like:
+- "How many vacation days do I get in my first year?"
+- "What is the expense reimbursement process?"
+- "Who do I contact for IT issues?"
+- "What are the guidelines for remote work?"
+Nexus will provide an answer and show you which document it pulled the information from so you can read the full source if needed.
 
-Primary users:
-- Engineers
-- Customer support staff
-- Internal operations team
+FEEDBACK AND IMPROVEMENTS
 
-Core components:
-- Document ingestion pipeline
-- Vector database
-- Query processing API
-- Frontend interface
+WHAT YOU CAN ASK
 
-Technologies used:
-- Python
-- FastAPI
-- PostgreSQL
-- FAISS vector database
-- Docker
-- Kubernetes
+You can ask Nexus questions like:
 
-Environment URLs:
-Dev: https://dev.projectx.internal
-Staging: https://staging.projectx.internal
-Prod: https://projectx.internal
+- "How many vacation days do I get in my first year?"
+- "What is the expense reimbursement process?"
+- "Who do I contact for IT issues?"
+- "What are the guidelines for remote work?"
+
+Nexus will provide an answer and show you which document it pulled the information from so you can read the full source if needed.
+
+
+
+FEEDBACK AND IMPROVEMENTS
+
+The Nexus platform is maintained by the Digital Operations Team. If you find an answer that seems incorrect or outdated, please flag it using the thumbs down button on the response. Document updates are reviewed monthly.
+
+Contact: digitalops@arrowood.internal

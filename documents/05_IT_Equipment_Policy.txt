@@ -1,0 +1,80 @@
+IT & EQUIPMENT POLICY — ARROWOOD & PARTNERS
+Last Updated: January 2025
+
+
+
+EQUIPMENT ISSUED TO EMPLOYEES
+
+All full-time employees receive the following equipment on their first day:
+
+- MacBook Pro (14" or 16" depending on role)
+- USB-C hub and power adapter
+- Company-issued phone (client-facing roles only)
+
+If your role requires additional equipment (external monitor, drawing tablet, specialty headset), your manager submits a request to IT before your start date. Equipment requests after onboarding go through the IT request portal at it.arrowood.internal.
+
+All equipment remains the property of Arrowood & Partners and must be returned in good condition upon departure.
+
+
+
+SOFTWARE & TOOLS
+
+Standard tools installed on all machines:
+
+- Slack (internal communication)
+- Microsoft 365 (Word, Excel, PowerPoint, Outlook)
+- Zoom (video conferencing)
+- 1Password (password management)
+- Notion (project documentation and knowledge base)
+- Okta (single sign-on)
+
+You may request additional software through the IT portal. Requests are reviewed within 3 business days. Do not download or install software on your work machine without IT approval. Unauthorized software may create security vulnerabilities and will be flagged during routine audits.
+
+
+
+PASSWORDS & ACCOUNT SECURITY
+
+All employees must use 1Password to generate and store passwords. Do not reuse passwords across accounts.
+
+Password requirements for company accounts:
+- Minimum 14 characters
+- Mix of uppercase, lowercase, numbers, and symbols
+- Never share your password with anyone, including IT staff
+
+Multi-factor authentication (MFA) is mandatory for all company accounts. MFA is set up via Okta during onboarding. If you lose access to your MFA device, contact IT immediately at it-support@arrowood.internal.
+
+
+
+DATA & FILE STORAGE
+
+All work files must be stored in company-approved locations:
+
+- SharePoint / OneDrive: Documents, reports, presentations
+- Notion: Project notes, wikis, internal documentation
+- Secure client folders: Client deliverables (access controlled by project)
+
+Do not store work files on your local machine only. Do not use personal Google Drive, Dropbox, or iCloud for work documents.
+
+
+
+LOST OR DAMAGED EQUIPMENT
+
+Report lost or stolen equipment to IT within 24 hours at it-support@arrowood.internal. IT will remotely wipe the device if necessary.
+
+If equipment is damaged due to normal wear, IT will arrange a replacement. Damage due to negligence (e.g., dropping an unprotected laptop) may result in a partial cost recovery — IT will assess on a case-by-case basis.
+
+
+
+IT SUPPORT
+
+For technical issues, contact IT through:
+
+- Slack: #it-support channel
+- Email: it-support@arrowood.internal
+- Portal: it.arrowood.internal
+
+Response times:
+- Critical (system down, security incident): within 1 hour
+- High (unable to work): within 4 hours
+- Normal (general issues): within 1 business day
+- Low (requests, upgrades): within 3 business days

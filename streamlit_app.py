@@ -12,8 +12,7 @@ st.set_page_config(
     layout="wide"
 )
 
-# --- Load environment variables ---
-# --- Load Gemini API key: try Colab secrets, then .env/environment variable ---
+# --- Load Gemini API key: try Colab secrets first, then .env/environment variable ---
 API_KEY = None
 try:
     from google.colab import userdata
@@ -41,6 +40,9 @@ model = genai.GenerativeModel("models/gemini-2.5-flash")
 chroma_client = chromadb.PersistentClient(path="./chroma_db")
 embedding_model = SentenceTransformer('BAAI/bge-small-en-v1.5')
 
+# Relevance threshold for filtering out low-confidence ChromaDB results.
+RELEVANCE_THRESHOLD = 1.0
+
 # --- Database initialization ---
 def initialize_database():
     try:
@@ -49,18 +51,35 @@ def initialize_database():
             from ingest import ingest_documents
             ingest_documents()
             collection = chroma_client.get_collection("workplace_documents")
-    except:
+    except Exception as e:
+        print(f"Collection not found, running ingestion: {e}")
         from ingest import ingest_documents
         ingest_documents()
         collection = chroma_client.get_collection("workplace_documents")
     return chroma_client.get_collection("workplace_documents")
 
+
 # --- Generate AI response ---
 def generate_response(context, query):
     docs_text = "\n".join(f"- {doc}" for doc in context)
-    prompt = f"""You are a helpful workplace assistant. Answer the question based ONLY on the provided documents.\n\nContext Documents:\n{docs_text}\n\nQuestion: {query}\n\nInstructions:\n- If the answer is not in the documents, say "I don't have enough information to answer that.\"\n- Be concise and accurate\n- Use a professional but friendly tone\n\nAnswer:"""
+    prompt = f"""You are a helpful workplace assistant for Arrowood & Partners.
+Answer the employee's question using the context documents below.
+
+Context Documents:
+{docs_text}
+
+Question: {query}
+
+Instructions:
+- Answer directly and confidently if the information is present, even partially
+- Do not say "I don't have enough information" if any relevant detail exists in the documents
+- Only say "I don't have enough information to answer that" if the topic is completely absent from the documents
+- Be concise and use a professional but friendly tone
+
+Answer:"""
     response = model.generate_content(prompt)
     return response.text
+
 
 # --- Custom CSS ---
 st.markdown("""
@@ -241,20 +260,39 @@ if search_clicked:
             with st.spinner("Thinking..."):
                 try:
                     query_embedding = embedding_model.encode(query_text).tolist()
-                    results = collection.query(query_embeddings=[query_embedding], n_results=5)
-                    retrieved_docs = results['documents'][0]
 
-                    if not retrieved_docs or all(not doc.strip() for doc in retrieved_docs):
+                    # Query ChromaDB for top matching documents, including distance
+                    # scores for relevance filtering
+                    results = collection.query(
+                        query_embeddings=[query_embedding],
+                        n_results=5,
+                        include=["documents", "distances"]
+                    )
+
+                    retrieved_docs = results['documents'][0]
+                    distances = results['distances'][0]
+
+                    # Filter out chunks that are too dissimilar to the query.
+                    # This prevents unrelated document chunks from being passed to Gemini,
+                    # which causes confident-sounding but incorrect answers (e.g. responding
+                    # to "hello" with onboarding content that happened to match semantically).
+                    filtered_docs = [
+                        doc for doc, dist in zip(retrieved_docs, distances)
+                        if dist < RELEVANCE_THRESHOLD
+                    ]
+
+                    # If no chunks passed the relevance threshold, return fallback answer
+                    if not filtered_docs:
                         st.session_state.response_html = "<div class='response-text'>I don't have enough information to answer that.</div>"
                         st.session_state.sources_html = "<div class='placeholder-text'>No sources found</div>"
                     else:
-                        top_docs = retrieved_docs[:3]
-                        generated_answer = generate_response(top_docs, query_text)
+                        # Generate answer using all filtered docs for maximum context
+                        generated_answer = generate_response(filtered_docs, query_text)
 
                         st.session_state.response_html = f"<div class='response-text'>{generated_answer}</div>"
                         st.session_state.sources_html = "".join([
                             f"<div class='source-card'><div class='source-label'>Source {i+1}</div><div class='source-text'>{doc}</div></div>"
-                            for i, doc in enumerate(top_docs)
+                            for i, doc in enumerate(filtered_docs)
                         ])
                 except Exception as e:
                     st.session_state.response_html = f"<div class='error-text'>Error: {str(e)}</div>"

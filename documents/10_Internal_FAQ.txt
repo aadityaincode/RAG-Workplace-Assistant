@@ -1,0 +1,77 @@
+FREQUENTLY ASKED QUESTIONS — ARROWOOD & PARTNERS
+
+A collection of common questions from employees. For anything not covered here, contact hr@arrowood.internal or ask in the #ask-hr Slack channel.
+
+
+
+TIME OFF & SCHEDULING
+
+Q: How do I request vacation time?
+A: Submit your request through the HR portal at hr.arrowood.internal at least two weeks in advance for trips of 3 or more days, or 24 hours in advance for a single day off. Your manager will approve or decline through the portal.
+
+Q: Can I take vacation in my first 90 days?
+A: Yes, with manager approval. Days accrue from your first day, and there is no blackout period during onboarding, though your manager may ask you to delay longer trips until you've settled in.
+
+Q: What happens to unused vacation at year-end?
+A: You can carry over up to 10 unused vacation days into the new year. Days above 10 are forfeited on January 1. Sick days do not carry over.
+
+Q: Do I need to give a reason when calling in sick?
+A: No. Send a brief message to your manager and team before your expected start time to let them know you won't be in. You do not need to provide details about your illness.
+
+Q: What are floating holidays and how do I use them?
+A: Each employee gets 2 floating holidays per year. They can be used for any purpose — religious observances, personal occasions, a day you just need off. Submit them as time off through the HR portal like any other vacation day.
+
+
+
+PAY & BENEFITS
+
+Q: When is payday?
+A: Employees are paid bi-weekly. The full schedule for the year is in the HR portal under Payroll. If a payday falls on a holiday, payment is made the business day before.
+
+Q: How do I update my direct deposit information?
+A: Log in to the HR portal and navigate to Payroll > Banking Information. Changes take effect on the next payroll cycle after submission.
+
+Q: When can I enroll in benefits?
+A: New hires have 30 days from their start date to enroll. Outside of that window, changes can only be made during the annual open enrollment period in November, unless you have a qualifying life event (marriage, birth of a child, etc.).
+
+Q: How do I access my pay stubs?
+A: Pay stubs are available in the HR portal under Payroll > Pay History.
+
+Q: How does the 401(k) match work?
+A: The company matches 100% of your contributions up to 4% of your base salary. For example, if you contribute 4% of your salary, the company adds another 4%. Contributions above 4% are not matched. You can update your contribution rate through the benefits portal at any time.
+
+
+
+EQUIPMENT & IT
+
+Q: My laptop is having issues. Who do I contact?
+A: Reach out to IT support via the #it-support Slack channel, at it-support@arrowood.internal, or through the IT portal at it.arrowood.internal.
+
+Q: Can I use my personal laptop for work?
+A: No. All work must be done on your company-issued device. If your laptop is damaged or unavailable, contact IT immediately for a temporary solution.
+
+Q: I lost my MFA device. What do I do?
+A: Contact IT immediately at it-support@arrowood.internal. They will suspend your account temporarily and help you re-enroll in MFA on a new device.
+
+
+
+POLICIES & CONDUCT
+
+Q: How do I report a concern about a colleague's behavior?
+A: You can speak to your manager, contact HR directly at hr@arrowood.internal, or submit an anonymous report at conduct.arrowood.internal. All reports are reviewed and taken seriously.
+
+Q: Can I do freelance work outside of my job?
+A: Yes, in most cases. The key requirement is that it does not create a conflict of interest with your role at Arrowood. If you're unsure, disclose it to HR — the disclosure process is straightforward and exists to protect you, not penalize you.
+
+Q: Can I refer someone for a job opening?
+A: Yes, and you'll receive a $2,000 USD / $2,600 CAD bonus if your referral is hired and completes 6 months. Submit referrals through the HR portal before your contact applies.
+
+
+
+OFFICE & FACILITIES
+
+Q: What do I do if I'm locked out of the office?
+A: Contact your office manager. Austin: jenny.malik@arrowood.internal | Chicago: derek.osei@arrowood.internal | Toronto: claire.fontaine@arrowood.internal
+
+Q: Is parking available at the offices?
+A: Austin (HQ) has a company parking lot with reserved spots for employees — register your vehicle through the office manager. Chicago and Toronto are in urban locations; a monthly transit subsidy of $120/month is available for those offices. Submit through the HR portal.

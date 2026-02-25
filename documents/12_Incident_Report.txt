@@ -1,0 +1,68 @@
+INCIDENT REPORT — HR PORTAL OUTAGE
+Date: March 3, 2025
+Reported by: Derek Osei (Office Manager, Chicago)
+Reviewed by: Anita Sharma (Head of Technology)
+Severity: Medium
+Status: Resolved
+
+
+
+SUMMARY
+
+The HR portal (hr.arrowood.internal) was inaccessible for approximately 3 hours and 40 minutes on the morning of March 3, 2025, between 7:50 AM and 11:30 AM CT. During this window, employees were unable to submit time-off requests, access pay stubs, or complete onboarding forms. No data was lost.
+
+
+
+TIMELINE
+
+7:50 AM CT — First report of portal inaccessibility received via #it-support Slack channel (reported by a Chicago employee attempting to submit a vacation request)
+
+8:05 AM CT — IT on-call engineer, Paulo Reyes, begins investigation
+
+8:30 AM CT — Root cause identified: a scheduled maintenance update to the authentication service (Okta integration) introduced a configuration error that broke the login flow for the HR portal specifically
+
+9:15 AM CT — Status update posted in #company-announcements on Slack: "We are aware of the HR portal issue and are working on a fix. Expected resolution by 11 AM."
+
+10:45 AM CT — Fix deployed to staging and verified
+
+11:30 AM CT — Fix deployed to production; portal access restored
+
+11:45 AM CT — All-clear posted in #company-announcements
+
+
+
+ROOT CAUSE
+
+A configuration change made during a routine Okta maintenance window incorrectly scoped the SSO redirect URL for the HR portal. The change was applied automatically as part of a scheduled batch update and was not individually reviewed before deployment.
+
+
+
+IMPACT
+
+- Approximately 85 employees attempted to access the portal during the outage window
+- 12 employees contacted IT support directly
+- 3 time-off requests that were in-progress were lost and needed to be resubmitted
+- No payroll data or personal employee data was affected
+- No client-facing systems were impacted
+
+
+
+RESOLUTION
+
+The Okta SSO redirect configuration was corrected by IT engineer Paulo Reyes. A full regression test was conducted on the HR portal before restoring access.
+
+
+
+PREVENTIVE MEASURES
+
+The following changes will be implemented by March 31, 2025:
+
+1. All configuration changes to SSO settings will require a second reviewer before being applied to production
+2. Automated monitoring will be added for the HR portal login flow, with alerts triggered within 5 minutes of a login failure spike
+3. Maintenance updates will be scheduled outside of core business hours (before 7 AM or after 7 PM CT) where possible
+
+
+
+LESSONS LEARNED
+
+The outage was contained quickly once identified, and communication to employees was clear and timely. The gap was in the change review process — a quick pre-deployment check would have caught the misconfiguration before it reached production.

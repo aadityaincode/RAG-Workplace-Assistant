@@ -1,0 +1,84 @@
+NEW EMPLOYEE ONBOARDING GUIDE — ARROWOOD & PARTNERS
+Last Updated: April 2025
+
+
+
+WELCOME
+
+We're glad you're here. This guide walks you through everything you need to know in your first two weeks at Arrowood & Partners.
+
+If anything is unclear or missing, reach out to your onboarding buddy or HR at hr@arrowood.internal.
+
+
+
+BEFORE YOUR FIRST DAY
+
+You should have received an email from IT with instructions to set up your Okta account and 1Password before you arrive. If you haven't received this email by 3 business days before your start date, contact it-support@arrowood.internal.
+
+Your laptop will be waiting at your desk (or shipped to your home if you are starting remotely). Do not use a personal device to access company systems.
+
+
+
+DAY 1 CHECKLIST
+
+Morning:
+- Meet your manager and get a tour of the office (or a virtual introduction if remote)
+- Pick up or confirm receipt of your laptop and any other equipment
+- Complete Okta setup and activate MFA
+- Set up Slack and join your team channels
+- Update your profile photo in Slack and Outlook
+
+Afternoon:
+- Complete the mandatory HR onboarding forms in the HR portal (hr.arrowood.internal)
+- Review and sign your employment agreement and confidentiality agreement if not already done
+- Set up direct deposit in the payroll system
+- Enroll in health benefits (you have 30 days, but earlier is better)
+- Meet your onboarding buddy for a casual coffee chat
+
+
+
+WEEK 1
+
+Your manager will schedule a series of introduction meetings with key people on your team and adjacent teams. These are informal — the goal is to learn names, understand how teams connect, and ask whatever questions you have.
+
+By the end of Week 1, you should have:
+- Access to all the tools you need for your role
+- An understanding of your team's current priorities
+- Read the company overview, values, and your department's documentation in Notion
+- Attended your first team standup or weekly meeting
+
+
+
+WEEK 2
+
+In your second week, you'll start taking on your first real work. This will look different depending on your role — your manager will set expectations in your first 1:1.
+
+You will also complete:
+- IT and data security training (mandatory, approximately 45 minutes, in the Learning portal)
+- Workplace conduct and anti-harassment training (mandatory, approximately 30 minutes)
+
+Both must be completed within your first 14 days. You'll receive reminders via Slack.
+
+
+
+YOUR ONBOARDING BUDDY
+
+Every new employee is paired with an onboarding buddy — a colleague who has been at Arrowood for at least one year and volunteered to help new team members settle in. Your buddy is not your manager. Think of them as a friendly resource for the questions that feel too small to ask in a meeting.
+
+Your buddy will reach out to you on Day 1 via Slack.
+
+
+
+30 / 60 / 90 DAY CHECK-INS
+
+Your manager will schedule check-in conversations at the 30, 60, and 90-day marks. These are informal conversations focused on how you're settling in, what's going well, and what you might need more support with. There is no formal evaluation at these check-ins — that happens at your first annual review.
+
+
+
+KEY CONTACTS
+
+HR (benefits, policies, payroll questions): hr@arrowood.internal
+IT Support (equipment, software, access): it-support@arrowood.internal
+Office Manager – Austin: jenny.malik@arrowood.internal
+Office Manager – Chicago: derek.osei@arrowood.internal
+Office Manager – Toronto: claire.fontaine@arrowood.internal

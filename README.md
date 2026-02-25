@@ -10,14 +10,18 @@ A minimal Retrieval-Augmented Generation (RAG) system for querying workplace doc
 - Clean, dark minimal UI
 - Built with Flask, ChromaDB, and Sentence Transformers
 
+---
+
 ## Prerequisites
 
 - Python 3.11 or higher
-- Google Gemini API key ([Get one here](https://aistudio.google.com/app/apikey))
+- Google Gemini API key — [Get one here](https://aistudio.google.com/app/apikey)
+
+---
 
 ## Project Structure
 
-All documents for search and retrieval should be placed as plain text (.txt) files in the `documents/` folder. Example structure:
+Place all documents you want to search as plain `.txt` files inside the `documents/` folder:
 
 ```
 documents/
@@ -36,118 +40,124 @@ documents/
 └── 12_Random_Internal_Notes.txt
 ```
 
-You may add your own .txt files.
+You may add your own `.txt` files freely. Subfolders are supported.
 
-## Setup Instructions
+---
+
+## Setup
 
 ### Quick Start (Recommended)
 
-#### macOS/Linux:
-Run the setup script:
+**macOS/Linux:**
 ```bash
 ./script.sh
 ```
 
-#### Windows:
-Run the batch script:
+**Windows:**
 ```bat
 script.bat
 ```
 
-This will create a virtual environment and install all dependencies.
+This automatically creates a virtual environment and installs all dependencies.
 
 ### Manual Setup
 
-1. **Create a Virtual Environment**
-	```bash
-	python3.11 -m venv venv
-	```
-2. **Activate the Virtual Environment**
-	- macOS/Linux:
-		```bash
-		source venv/bin/activate
-		```
-	- Windows:
-		```bat
-		.\venv\Scripts\activate
-		```
-3. **Install Dependencies**
-	```bash
-	pip install -r requirements.txt
-	```
-4. **Configure API Key**
-	- Create a `.env` file in the project root directory with:
-		```
-		GOOGLE_API_KEY=your_api_key_here
-		```
-	- If you don't set up the `.env` file, you'll get:
-		```
-		ValueError: GOOGLE_API_KEY not found. Please set it in your .env file.
-		```
+**1. Create a virtual environment**
+```bash
+python3.11 -m venv venv
+```
+
+**2. Activate the virtual environment**
+
+macOS/Linux:
+```bash
+source venv/bin/activate
+```
+Windows:
+```bat
+.\venv\Scripts\activate
+```
+
+**3. Install dependencies**
+```bash
+pip install -r requirements.txt
+```
+
+**4. Configure your API key**
+
+Create a `.env` file in the project root:
+```
+GOOGLE_API_KEY=your_api_key_here
+```
+
+> If the `.env` file is missing or the key is not set, the app will raise:
+> `ValueError: GOOGLE_API_KEY not found. Please set it in your .env file.`
+
+---
 
 ## Ingesting Documents
 
-After adding or updating files in the `documents/` folder, run:
+After adding or updating files in the `documents/` folder, run the ingestion script to populate the vector database:
 
 ```bash
 python ingest.py
 ```
 
-This will process all .txt files (including subfolders) and update the ChromaDB vector database.
+This processes all `.txt` files and stores their embeddings in ChromaDB. Re-run this any time your documents change.
 
-## Running the Application (Flask & Streamlit)
+---
 
-You can run the app using either Flask or Streamlit:
+## Running the App
 
-### Option 1: Flask (Classic UI)
+This project includes two interfaces: a **Flask app** (recommended for local use) and a **Streamlit app** (for Google Colab or remote access). Both connect to the same ChromaDB backend and produce identical results.
 
-Start the Flask app:
+### Option 1: Flask — Recommended for Local Use
+
+The Flask app is the primary interface for running the assistant locally after cloning the repo.
+
 ```bash
 python app.py
 ```
-Open your browser and go to:
-```
-http://127.0.0.1:5000
-```
-or
+
+Then open your browser and go to:
 ```
 http://localhost:5000
 ```
 
-### Option 2: Streamlit (Modern UI)
+### Option 2: Streamlit — For Google Colab or Remote Access
 
-Start the Streamlit app:
+The Streamlit app is included specifically for environments where Flask is not practical, such as **Google Colab**. If you are running this locally after cloning the repo, use the Flask app above.
+
 ```bash
 streamlit run streamlit_app.py
 ```
-Open your browser and go to the URL shown in the terminal (usually http://localhost:8501).
 
-#### Accessing Streamlit Remotely with ngrok (Google Colab or Remote)
+Then open your browser and go to the URL shown in the terminal (usually `http://localhost:8501`).
 
-If you're running Streamlit in Google Colab or want to share your app remotely:
+> **Running on Google Colab?** The Streamlit app requires ngrok to expose the app publicly from Colab's isolated environment. See [Colab_Setup_Guide.md](./Colab_Setup_Guide.md) for full step-by-step instructions.
 
-1. Install pyngrok:
-   ```bash
-   pip install pyngrok
-   ```
-2. Start the Streamlit app (as above).
-3. In a Python shell or notebook, run:
-   ```python
-   from pyngrok import ngrok
-   ngrok.set_auth_token('YOUR_NGROK_AUTH_TOKEN')  # Only needed the first time
-   public_url = ngrok.connect(8501)
-   print(f"ngrok tunnel is live at: {public_url}")
-   ```
-4. Share the public ngrok URL to access your Streamlit app from anywhere.
-
-- For Google Colab, see Colab_Setup_Guide.md for detailed step-by-step instructions.
-- Make sure to create a free ngrok account and get your auth token from https://ngrok.com/
+---
 
 ## Usage
 
-1. Type your question in the search box (e.g., What is the business context?)
-2. Click Search or press Enter
-3. View the AI-generated response on the left
-4. See the source documents on the right
+1. Type your question in the search box (e.g., *What is the business context?*)
+2. Click **Search** or press **Enter**
+3. The AI-generated response appears on the left
+4. Source documents used to generate the answer appear on the right
 
 ---
+
+## Troubleshooting
+
+**`ValueError: GOOGLE_API_KEY not found`**
+Your `.env` file is missing or the variable name is misspelled. Ensure the file exists in the project root and contains exactly `GOOGLE_API_KEY=your_key_here`.
+
+**Empty or irrelevant responses**
+Your documents may not have been ingested yet, or the ChromaDB database is stale. Re-run `python ingest.py` after any changes to the `documents/` folder.
+
+**ChromaDB errors on startup**
+The database may be corrupted. Delete the `chroma_db/` directory and re-run ingestion:
+```bash
+rm -rf chroma_db
+python ingest.py
+```

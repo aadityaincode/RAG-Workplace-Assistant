@@ -1,0 +1,69 @@
+INTERNAL OPERATIONS NOTES — DIGITAL OPS TEAM
+Last Updated: April 2025
+Maintained by: Anita Sharma's team
+
+These are working notes for the Digital Operations team. Not an official policy document.
+
+
+
+NEXUS ROLLOUT STATUS
+
+Austin: Complete. All departments onboarded. ~190 active users.
+Chicago: Complete. ~140 active users.
+Toronto: In progress. Currently at ~60 of 70 target users. Final onboarding session scheduled April 22.
+
+Known issues:
+- Search results for HR policy documents in French (Canadian employees) are weaker than English results. Investigating whether to add a French-language document index.
+- Some older documents uploaded in scanned PDF format are not being indexed properly. IT is running OCR on approximately 40 affected files. Expected completion: end of April.
+- Users have requested a "thumbs up/thumbs down" feedback button on responses — this is on the roadmap for the next release.
+
+
+
+DOCUMENT REVIEW SCHEDULE
+
+The following document categories are reviewed and updated annually:
+
+- Time Off Policy: January
+- Benefits Guide: January (after open enrollment is finalized)
+- Code of Conduct: January
+- IT & Equipment Policy: January
+- Expense Policy: February
+- Remote Work Policy: March
+
+Ad hoc updates are made whenever a policy changes mid-year. The Digital Ops team coordinates with HR and IT to keep documents current.
+
+If you notice an outdated document in Nexus, flag it in the #nexus-feedback Slack channel.
+
+
+
+VENDOR NOTES
+
+Current Nexus infrastructure:
+- Vector database: ChromaDB (hosted internally)
+- Embedding model: BAAI/bge-small-en-v1.5
+- LLM: Google Gemini 2.5 Flash
+- Hosting: Internal Kubernetes cluster
+
+Evaluating for future consideration:
+- Pinecone (managed vector DB) — would reduce maintenance overhead but adds cost
+- Moving to a larger embedding model for improved retrieval accuracy on short queries
+- Adding metadata filtering so users can restrict searches to a specific document category (e.g., "only show me HR policies")
+
+
+
+OPEN ITEMS
+
+- [ ] Add French language support for Toronto documents (owner: Anita Sharma, target Q3 2025)
+- [ ] OCR backfill for legacy PDFs (owner: Paulo Reyes, target end of April)
+- [ ] Feedback button on Nexus responses (owner: TBD, target Q2 2025)
+- [ ] Evaluate Pinecone migration (owner: Anita Sharma, decision by Q3 2025)
+- [ ] User analytics dashboard — track which documents are queried most frequently (target Q3 2025)
+
+
+
+RANDOM NOTES FROM STANDUP (April 9, 2025)
+
+- Derek (Chicago) reported that a few employees are still emailing HR directly for questions that Nexus can answer. Plan to send a reminder nudge via Slack to Chicago team.
+- Onboarding docs are currently the most-searched category. Consider adding more granular FAQs for new hires.
+- Paulo flagged that the current chunk size (500 characters) may be too small for long policy documents. Will test with 800 and 1000 character chunks and report back.
+- Next team sync: April 23, 2025, 10 AM CT.
